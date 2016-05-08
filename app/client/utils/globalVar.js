@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import Constant from 'react-constant';
 import formToObj from 'form-to-obj';
 import request from './request';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import _ from 'lodash';
 import defaultConfig from 'root/config/config.client';
 import cx from 'classnames';
@@ -37,7 +37,7 @@ setGlobal({
   Constant,
   request,
   formToObj,
-  RouterHistory: browserHistory,
+  RouterHistory: hashHistory,
   marked
 })
 

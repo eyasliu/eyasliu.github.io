@@ -129,7 +129,7 @@
         "allowKeywords": true
       }
     ],
-    "eqeqeq": 2,
+    // "eqeqeq": 2,
     // http://eslint.org/docs/rules/eqeqeq
     "guard-for-in": 2,
     // http://eslint.org/docs/rules/guard-for-in

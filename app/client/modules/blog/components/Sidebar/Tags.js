@@ -11,7 +11,7 @@ export default class Tags extends Component {
     return (
       <div className={style.tags}>
         {data.content.map(item => (
-          <a href={item.link}>{item.title}</a>
+          <Link to={item.link}>{item.title}</Link>
         ))}
       </div>
     )

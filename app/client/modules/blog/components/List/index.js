@@ -14,8 +14,20 @@ import * as listActions from 'blog/actions/list';
 export default class List extends Component {
   constructor(props) {
     super();
-    props.getList();
+    props.getList({
+      ...props.listParam,
+      labels: props.params.tagname
+    });
     props.getTags()
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(this.props.params.tagname !== nextProps.params.tagname){
+      nextProps.getList({
+        ...nextProps.params,
+        labels: nextProps.params.tagname
+      })
+    }
   }
 
   render() {

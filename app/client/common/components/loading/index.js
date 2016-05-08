@@ -55,7 +55,8 @@ export default class Loading extends Component {
       <div className={style.loader}>
         <div className="loader">
           <div className={cx('loader-inner', this.props.name)}>
-            {this.addDivs(this.props.name)}
+            {this.props.text || this.addDivs(this.props.name)}
+            {}
           </div>
         </div>
         <div className="clear"></div>

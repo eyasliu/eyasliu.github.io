@@ -2,7 +2,7 @@ const initState = {
   list: [
     {
       id: 1,
-      name:'latest_post',
+      name: 'latest_post',
       show: true,
       title: '最近更新',
       subtitle: 'Last Update',
@@ -31,16 +31,16 @@ const initState = {
 export default function sidebar(state = initState, action) {
   switch(action.type){
     case 'UPDATE_SIDEBAR':
-    if(action.name){
-      const block = _.find(state.list, item => item.name === action.name);
-      block.content = action.data;
-      return {
-        ...state,
-        list: [
-          ...state.list
-        ]
-      }
-    } else {
+      if(action.name){
+        const block = _.find(state.list, item => item.name === action.name);
+        block.content = action.data;
+        return {
+          ...state,
+          list: [
+            ...state.list
+          ]
+        }
+      } 
       return {
         ...state,
         list: [
@@ -48,9 +48,8 @@ export default function sidebar(state = initState, action) {
           action.data
         ]
       }
-    }
+      
     default: 
       return state
   }
-  return state;
 }

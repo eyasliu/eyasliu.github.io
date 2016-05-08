@@ -4,26 +4,31 @@ const {postUrl} = config;
 
 export function getList(param){
   return dispatch => {
+    dispatch({
+      type: constant.ResetList
+    })
     request.get(postUrl)
-      .send(param)
+      .query(param)
       .end((err, res) => {
-        dispatch({
-          type: constant.GetList,
-          param,
-          data: res.body
-        })
-        const latest = _.chain(res.body)
-          .sortBy(item => +new Date(item.updated_at))
-          .take(10)
-          .map(item => ({
-            title: item.title,
-            link: '/blog/detail/' + item.number
-          }))
-        dispatch({
-          type: 'UPDATE_SIDEBAR',
-          name: 'latest_post',
-          data: latest.value()
-        })
+        if(!err){
+          dispatch({
+            type: constant.GetList,
+            param,
+            data: res.body
+          })
+          const latest = _.chain(res.body)
+            .sortBy(item => +new Date(item.updated_at))
+            .take(10)
+            .map(item => ({
+              title: item.title,
+              link: '/blog/detail/' + item.number
+            }))
+          dispatch({
+            type: 'UPDATE_SIDEBAR',
+            name: 'latest_post',
+            data: latest.value()
+          })
+        }
       })
   }
 }

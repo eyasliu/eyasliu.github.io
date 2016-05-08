@@ -10,9 +10,6 @@ const initState = {
     }, {
       label: '博客',
       link: '/blog'
-    }, {
-      label: '关于我',
-      link: '/blog/detail/1'
     }
   ]
 }

@@ -14,7 +14,14 @@ export default class Post extends Component {
     const {data} = this.props;
     return (
       <div className={style.post}>
-        {data && data.length ? data.map(item => <Item data={item} />) : <Loading></Loading>}
+        {this.props.params.tagname ? (
+          <div className={style.help}>
+            标签：{this.props.params.tagname}
+          </div>
+        ) : ''}
+        {data && data.length ? data.map(item => 
+          <Item data={item} />
+        ) : <Loading text={this.props.isOver ? '加载完成' : ''}></Loading>}
       </div>
     )
   }

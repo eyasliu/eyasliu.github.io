@@ -7,7 +7,7 @@ export default class TagsInput extends Component{
   }
 
   addTag(options, values, search){
-    let labels = values.map(value => value.label); 
+    const labels = values.map(value => value.label); 
     if (search.trim().length == 0 || labels.indexOf(search.trim()) != -1) {
       return null;  
     }
@@ -15,10 +15,10 @@ export default class TagsInput extends Component{
   }
 
   render(){
-    return <MultiSelect
+    return (<MultiSelect
       createFromSearch={::this.addTag}
       placeholder="请输入标签"
       {...this.props}
-    ></MultiSelect>
+    />)
   }
 }
