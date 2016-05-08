@@ -92,19 +92,19 @@ gulp.task('build-client', ()=> {
       chunks: false,
       colors: true
     }));
-    fse.copySync('./build/client', './public/assets')
+    // fse.copySync('./build/client', './public/assets')
   });
 });
-gulp.task('build-server', ()=> {
-  webpack(webpackServerConfig, (err, stats) => {
-    console.log('=============================================================')
-    console.log('server package completed!')
-    console.log(stats.toString({
-      chunks: false,
-      colors: true
-    }));
-  });
-});
+// gulp.task('build-server', ()=> {
+//   webpack(webpackServerConfig, (err, stats) => {
+//     console.log('=============================================================')
+//     console.log('server package completed!')
+//     console.log(stats.toString({
+//       chunks: false,
+//       colors: true
+//     }));
+//   });
+// });
 
 
 // build on save

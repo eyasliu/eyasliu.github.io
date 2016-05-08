@@ -84,6 +84,15 @@
   span{
     margin-right: 15px;
   }
+  a{
+    font-size: 14px;
+    opacity: 0.8;
+    display: inline-block;
+    margin-right: 5px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
 .rightBtn{
   float: right;

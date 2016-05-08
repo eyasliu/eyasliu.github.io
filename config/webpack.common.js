@@ -6,10 +6,6 @@ const commonConfig = {
     root: path.join(__dirname, 'src/vendor'),
     extensions: ['', '.js', '.jsx', '.css', '.scss'],
     alias: {
-      // lib
-      // react: 'react-lite',
-      // 'react-dom': 'react-lite',
-      
       root: path.join(__dirname, '../'),
       src: path.join(__dirname, '../app/client'),
       vendor: path.join(__dirname, '../app/client/vendor'),

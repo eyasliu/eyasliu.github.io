@@ -35,8 +35,11 @@ export default class Post extends Component {
                 <footer className={cx(style.footer, "clearfix")}>
                   <div className={style.leftBtn}>
                     <span>
-                      <i className="fa fa-tags"></i> 5
+                      <i className="fa fa-tags"></i> 
                     </span>
+                    {labels.map(item => (
+                      <a href={"/blog/tag" + item.name}>{item.name}</a>
+                    ))}
                   </div>
                   <div className={style.rightBtn}>
                     <span>

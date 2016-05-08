@@ -4,7 +4,7 @@ module.exports = {
   server: 'https://api.github.com',
   debug: true,
   github: {
-    user: 'tmallfe',
-    repo: 'tmallfe.github.io'
+    user: 'eyasliu',
+    repo: 'blog'
   }
 };

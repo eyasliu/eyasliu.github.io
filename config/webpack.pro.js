@@ -10,6 +10,15 @@ module.exports = {
       './app/client/index.js'
     ]
   },
+  resolve: {
+    ...common.resolve,
+    alias: {
+      ...common.resolve.alias,
+      // lib
+      react: 'react-lite',
+      'react-dom': 'react-lite'
+    }
+  },
   plugins: [
     ...common.plugins,
     new webpack.optimize.UglifyJsPlugin({
