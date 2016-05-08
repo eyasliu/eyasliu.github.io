@@ -7,7 +7,7 @@ module.exports = {
   ...common,
   entry: {
     client: [
-      './app/client/entry.js'
+      './app/client/index.js'
     ]
   },
   plugins: [

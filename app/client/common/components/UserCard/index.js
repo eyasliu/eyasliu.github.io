@@ -8,7 +8,7 @@ export default class UserCard extends Component{
   static defaultProps = {
     name: 'Eyas Liu',
     text: '',
-    avatar: 'http://gravatar.oschina.net/avatar/2498d1cac9d0a9859fc6bf8d09702180?s=100'
+    avatar: require('./default.jpg')
   }
 
   render(){

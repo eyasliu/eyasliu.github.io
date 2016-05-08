@@ -10,6 +10,7 @@ const commonConfig = {
       // react: 'react-lite',
       // 'react-dom': 'react-lite',
       
+      root: path.join(__dirname, '../'),
       src: path.join(__dirname, '../app/client'),
       vendor: path.join(__dirname, '../app/client/vendor'),
       common: path.join(__dirname, '../app/client/common'),
@@ -81,10 +82,10 @@ const commonConfig = {
         'process.env.NODE_ENV': '"'+process.env.NODE_ENV+'"'
     }),
     // 全局变量
-    new webpack.ProvidePlugin({
-      cx: 'classname',
-      config: path.join(__dirname, './config.client')
-    })
+    // new webpack.ProvidePlugin({
+    //   cx: 'classname',
+    //   config: path.join(__dirname, './config.client')
+    // })
   // css 文件单独打包
   // new ExtractTextPlugin('style.css', {
   //     allChunks: true

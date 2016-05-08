@@ -12,6 +12,11 @@ export default function detail(state = initState, action) {
         ...state,
         data: action.data
       }
+    case postConst.of('GetComments'):
+      return {
+        ...state,
+        comments: action.data
+      }
     default: 
       return state;
   }

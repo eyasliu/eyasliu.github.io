@@ -12,8 +12,19 @@ import formToObj from 'form-to-obj';
 import request from './request';
 import {browserHistory} from 'react-router';
 import _ from 'lodash';
+import defaultConfig from 'root/config/config.client';
+import cx from 'classnames';
+import marked from 'marked';
+
+const config = {
+  ...defaultConfig,
+  repoUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}`,
+  postUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}/issues`
+}
 
 setGlobal({
+  config,
+  cx,
   _,
   React,
   ReactDOM,
@@ -26,7 +37,8 @@ setGlobal({
   Constant,
   request,
   formToObj,
-  RouterHistory: browserHistory
+  RouterHistory: browserHistory,
+  marked
 })
 
 

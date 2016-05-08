@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 export let defaultMiddlewares = [applyMiddleware(thunk)];
 
-if (config.debug && config.devtool) {
+if (process.env.NODE_ENV === 'development') {
   defaultMiddlewares = defaultMiddlewares.concat([
     window.devToolsExtension ? window.devToolsExtension() : f => f
   ]);

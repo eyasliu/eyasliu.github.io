@@ -9,9 +9,7 @@ export default class Text extends Component {
   render() {
     const {data} = this.props;
     return (
-      <div className={style.tags}>
-        {data.content}
-      </div>
+      <div className={style.tags} dangerouslySetInnerHTML={{__html: data.content}}></div>
     )
   }
 }

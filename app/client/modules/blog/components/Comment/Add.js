@@ -21,7 +21,10 @@ export default class Item extends Component{
             </div>
           </div>
           : 
-          <div className={cx(style.placeholder)} onClick={e => {this.setState({editing: true})}}>
+          <div className={cx(style.placeholder)} onClick={e => {
+            // this.setState({editing: true})
+            window.open('http://github.com/' + config.github.user + '/' + config.github.repo + '/issues/' + this.props.id)
+          }}>
             <UserCard name="" className={style.inline}></UserCard> 
             <span>点击添加评论</span>
           </div>

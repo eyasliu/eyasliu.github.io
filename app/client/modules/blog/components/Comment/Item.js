@@ -6,11 +6,17 @@ export default class Item extends Component{
   }
 
   render(){
+    const {data} = this.props;
+    const {user} = data;
     return (
       <div className={style.Item}>
-        <UserCard name="Yuesong Liu" text="test"></UserCard>
-        <div className={style.content}>
-          this is a test comment 这是中文测试文字
+        <UserCard 
+          name={user.login} 
+          text={data.created_at}
+          avatar={user.avatar_url}
+        ></UserCard>
+        <div className={style.content} dangerouslySetInnerHTML={{__html: marked(data.body)}}>
+          
         </div>
       </div>
     )

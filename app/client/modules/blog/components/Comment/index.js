@@ -8,10 +8,10 @@ export default class UserCard extends Component{
   }
 
   render(){
-    const {data} = this.props;
+    const {data, post} = this.props;
     return (
       <div className={style.comment}>
-        <Add></Add>
+        <Add id={post.number}></Add>
         {data.map(item => <Item data={item} />)}
       </div>
     )

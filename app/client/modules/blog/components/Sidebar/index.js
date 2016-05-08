@@ -17,7 +17,6 @@ export default class Sidebar extends Component {
     return (
       <div className={style.sidebar}>
         {list.map(item => <Block type={item.type} data={item} />)}
-
       </div>
     )
   }
