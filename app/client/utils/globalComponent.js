@@ -4,12 +4,12 @@
 import setGlobal from "./setGlobal";
 import {Link} from "react-router";
 import UserCard from "cc/UserCard";
-import FormText from "cc/Form/Text";
+// import FormText from "cc/Form/Text";
 import Loading from 'cc/loading';
 
 setGlobal({
   Link,
   UserCard,
-  FormText,
+  // FormText,
   Loading
 })

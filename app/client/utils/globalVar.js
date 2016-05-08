@@ -36,7 +36,7 @@ setGlobal({
   bindActionCreators,
   Constant,
   request,
-  formToObj,
+  // formToObj,
   RouterHistory: hashHistory,
   marked
 })

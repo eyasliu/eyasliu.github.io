@@ -1,6 +1,5 @@
 node_modules
 *.log
-/build
 local.js
 /public
 /.idea
