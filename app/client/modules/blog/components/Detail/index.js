@@ -13,6 +13,10 @@ export default class Detail extends Component{
     props.getComments(props.params.id)
   }
 
+  componentWillReceiveProps(nextProps){
+    utils.setTitle((nextProps.data.title ? nextProps.data.title : '文章详情') + ' | Blog')
+  }
+
   renderDetail(props){
     return (
       <div>

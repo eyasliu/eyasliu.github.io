@@ -19,6 +19,7 @@ export default class List extends Component {
       labels: props.params.tagname
     });
     props.getTags()
+    utils.setTitle('文章列表' + (props.params.tagname ? (' | 标签: ' + props.params.tagname) : '') + ' | Blog')
   }
 
   componentWillReceiveProps(nextProps){

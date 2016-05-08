@@ -15,6 +15,7 @@ import _ from 'lodash';
 import defaultConfig from 'root/config/config.client';
 import cx from 'classnames';
 import marked from 'marked';
+import utils from './utily';
 
 const config = {
   ...defaultConfig,
@@ -23,6 +24,7 @@ const config = {
 }
 
 setGlobal({
+  utils,
   config,
   cx,
   _,
