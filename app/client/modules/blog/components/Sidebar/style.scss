@@ -1,0 +1,38 @@
+.sidebar{
+  padding-left: 18px;
+}
+
+.block{
+  margin-bottom: 40px;
+}
+
+.header{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  h3,h4{
+    color: #373737;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  h4{
+    color: rgba(0,0,0,.44);
+  }
+}
+
+.list{
+  padding: 1em 0;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.tags{
+  font-size: 13px;
+  padding: 15px 0;
+  a{
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 3px 5px;
+    margin: 0 3px 3px 0;
+  }
+}

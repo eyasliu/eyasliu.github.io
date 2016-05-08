@@ -1,0 +1,24 @@
+.tabs{
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 14px;
+  ul{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #eee;
+    li{
+      float: left;
+      a{
+        display: block;
+        padding: 5px 15px;
+      }
+    }
+    .active{
+      border-bottom: 1px solid #868686;
+    }
+  }
+}
+.main{
+  padding-top: 1em;
+}

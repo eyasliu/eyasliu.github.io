@@ -1,0 +1,40 @@
+
+.post{
+  width: 100%;
+  max-width: 660px;
+  float: left;
+  margin: 0 auto;
+}
+.sidebar{
+  width: 340px;
+  float: left;
+}
+@media (max-width: 1024px) {
+  .list{
+    font-size: 14px;
+  }
+  .post{
+    width: 100%;
+    float: none;
+    margin: 0 auto;
+    *{
+      font-size: 14px;
+    }
+    h3{
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+  .sidebar{
+    width: 100%;
+    max-width: 660px;
+    float: none;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 480px) {
+  .sidebar{
+    display: none;
+  }
+
+}

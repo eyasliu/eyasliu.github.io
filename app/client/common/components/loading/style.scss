@@ -1,0 +1,10 @@
+.loader{
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  :global(.loader){
+    width: 60px;
+    line-height: 60px;
+    margin:0 auto;
+  }
+}

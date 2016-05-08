@@ -1,0 +1,30 @@
+.menu {
+  height: 50px;
+  width: 100%;
+  &:before{
+    display: table;
+    content: ' ';
+  }
+  &:after{
+    clear: both;
+    display: table;
+    content: ' ';
+  }
+}
+.list{
+  margin:0;
+  padding:0;
+  height: 50px;
+  list-style-type: none;
+  display: block;
+}
+.item{
+  float: left;
+  a{
+    line-height: 50px;
+    display: block; 
+    padding: 0 1em;
+    text-decoration: none;
+    color: rgba(0,0,0,.3)
+  }
+}

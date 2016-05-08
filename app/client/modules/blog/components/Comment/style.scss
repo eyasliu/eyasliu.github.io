@@ -1,0 +1,58 @@
+.Item{
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 4px #eee;
+  padding: 10px 10px;
+  margin: 5px 10px;
+  .content{
+    padding:0.5rem 0;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -.004em;
+  }
+}
+.add{
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 4px #eee;
+  padding: 10px 10px;
+  margin: 5px 10px;
+  .placeholder{
+    line-height: 36px;
+    height: 36px;
+    color: #999;
+    .inline{
+      display: inline-block;
+      float: left;
+    }
+    span{
+      display: inline-block;
+      float: left;
+    }
+  }
+  .edit{
+    .editarea{
+      padding: 0.5rem 0;
+      font-size: 14px;
+      textarea{
+        width: 98%;
+        max-width: 98%;
+        display: block;
+        min-height: 5em;
+        border: none;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 15px;
+      }
+      button{
+        border-radius: 10px;
+        margin-right: 15px;
+        border: none;
+        background: #00ab6b;
+        padding: 0.5em 1em;
+        color: #fff;
+        line-height: 1em;
+      }
+    }
+  }
+  
+}

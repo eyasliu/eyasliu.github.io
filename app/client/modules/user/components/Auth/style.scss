@@ -1,0 +1,71 @@
+.login,.signup{
+  width: 100%;
+  max-width: 1000px !important;
+  margin: 0 auto;
+}
+.inner{
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 100px 80px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+  h3{
+    font-weight: normal;
+    margin-bottom: 1rem;
+    font-size: 2em;
+  }
+}
+.form{
+  .control{
+    margin-bottom: 20px;
+  }
+  input{
+    border: 1px solid rgba(0,0,0,.15);
+    padding: 0 15px;
+    height: 35px;
+    font-size: 14px;
+    outline: 0;
+    background: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+.footer{
+  width: 100%;
+  max-width: 300px;
+  display: inline-block;
+  .btn{
+    display: inline-block;
+    width: 40%;
+    padding:5px 0;
+    margin: 1em 10px;
+    background: none;
+    border: none;
+    border-radius: 30px;
+    &.submit{
+      border: 1px solid #02b875;
+      color: #1c9963;
+    }
+    &.reset{
+      border: 1px solid rgba(0,0,0,.3);
+      color: rgba(0,0,0,.6);
+    }
+  }
+  
+}
+
+@media screen and (max-width: 767px){
+  .inner{
+    padding:2em 0;
+  }
+}

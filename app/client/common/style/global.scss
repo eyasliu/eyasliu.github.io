@@ -1,0 +1,35 @@
+
+.clearfix{
+  clear: both;
+  float: none;
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+  }
+}
+.form-control{
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  label{
+    width: 20%;
+    min-width: 100px;
+    float: left;
+  }
+  .form-input{
+    float: left;
+    width: 80%;
+    max-width: -webkit-calc(100% - 100px);
+    input{
+      width: 100%;
+      border: none;
+      background: none;
+      border-bottom: 2px solid #868686;
+      
+    }
+  }
+}

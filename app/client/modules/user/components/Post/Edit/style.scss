@@ -1,0 +1,38 @@
+.edit{
+  font-size: 14px;
+}
+.header{
+  padding: 1em 0;
+
+  h3{
+    line-height: 1.3em;
+    min-height: 1em;
+    font-size: 2em;
+    font-weight: normal;
+    &:before{
+      line-height: 1em;
+      line-height: 1em;
+    }
+  }
+}
+.tag{
+  width: 100% !important;
+}
+.btns{
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  button{
+    background: none;
+    cursor: pointer;
+    border: 1px solid #02b875;
+    color: #1c9963;
+    padding: 5px 15px;
+    border-radius: 30px;
+  }
+  .del{
+    margin-left: 15px;
+    border: 1px solid #FF8484;
+    color: #FF8484;
+  }
+}
