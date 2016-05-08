@@ -12,7 +12,7 @@ export default class Top extends Component {
     return (
       <div className={style.top}>
         <div className={style.logo}>
-          Eyasliu
+          {this.props.siteName}
           {/*<img src="http://gravatar.oschina.net/avatar/2498d1cac9d0a9859fc6bf8d09702180?s=100" alt=""/>*/}
         </div>
         <div className={style.action}>

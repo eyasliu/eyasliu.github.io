@@ -25,7 +25,7 @@ class Navbar extends React.Component {
     return (
       <div className={style.navbar}>
         <div className={style.inner}>
-          <Top />
+          <Top {...this.props} />
           <Menu data={this.props.navbar} />
         </div>
       </div>

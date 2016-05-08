@@ -26,9 +26,9 @@ const commonConfig = {
     }
   },
   output: {
-    path: path.join(__dirname, '../build/client'),
+    path: path.join(__dirname, '../build'),
     filename: '[name].js',
-    publicPath: '/assets/'
+    publicPath: '/build/'
   },
   module: {
     noParse:[

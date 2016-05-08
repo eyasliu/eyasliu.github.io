@@ -112,6 +112,6 @@ gulp.task('build', () => {
   exec('rm -rf public/assets build', (err, stats) => {
     console.log('clean success');
     run('build-client');
-    run('build-server');
+    // run('build-server');
   })
 });
