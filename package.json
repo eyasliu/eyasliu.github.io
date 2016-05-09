@@ -43,6 +43,7 @@
     "koa-static": "^2.0.0",
     "loaders.css": "^0.1.2",
     "lodash": "^4.9.0",
+    "lowdb": "^0.12.5",
     "marked": "^0.3.5",
     "normalize.css": "^4.0.0",
     "postcss": "^5.0.20",

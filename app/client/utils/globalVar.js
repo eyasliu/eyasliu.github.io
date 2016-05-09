@@ -16,6 +16,7 @@ import defaultConfig from 'root/config/config.client';
 import cx from 'classnames';
 import marked from 'marked';
 import utils from './utily';
+import db from './db';
 
 const config = {
   ...defaultConfig,
@@ -40,7 +41,8 @@ setGlobal({
   request,
   // formToObj,
   RouterHistory: hashHistory,
-  marked
+  marked,
+  db
 })
 
 
