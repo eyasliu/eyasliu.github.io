@@ -13,6 +13,7 @@
     "clean": "gulp clean",
     "start": "cross-env NODE_ENV=production bash run",
     "build": "cross-env NODE_ENV=production gulp build",
+    "server": "cross-env NODE_ENV=production node app/server",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "test": "cross-env NODE_ENV=test karma start --single-run",
     "test:watch": "cross-env NODE_ENV=test karma start -- --watch --no-single-run",
@@ -50,6 +51,7 @@
     "react": "^15.0.1",
     "react-ace": "^3.2.0",
     "react-addons-shallow-compare": "^15.0.2",
+    "react-constant": "^2.0.1",
     "react-dom": "^15.0.1",
     "react-lite": "^0.15.9",
     "react-redux": "^4.4.2",
@@ -57,7 +59,8 @@
     "react-selectize": "^2.0.1",
     "react-toolbox": "^0.16.2",
     "redux": "^3.4.0",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "superagent": "^1.8.3"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",
