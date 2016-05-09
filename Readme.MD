@@ -2,6 +2,8 @@
 
 这是一个使用在github page的单页面应用，使用 github api 数据生成一个博客网站，文章数据来源于指定仓库 issues
 
+**demo: http://eyasweb.com**
+
 ## 使用方法
 
 1. clone 该项目
