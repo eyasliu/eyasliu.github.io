@@ -60,7 +60,7 @@ const commonConfig = {
     ]
   },
   postcss: () => [
-    require('postcss-inline-comment'),
+    // require('postcss-inline-comment'),
     require('precss')
   ],
   plugins: [

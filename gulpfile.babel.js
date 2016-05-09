@@ -8,7 +8,7 @@ import webpackDevConfig from "./config/webpack.dev.js";
 import webpackProConfig from "./config/webpack.pro.js";
 import webpackServerConfig from "./config/webpack.server.js";
 import config from "./config/config.client";
-import nodemon from "nodemon";
+// import nodemon from "nodemon";
 import fse from "fs-extra";
 import {exec} from "child_process";
 
@@ -17,29 +17,29 @@ gulp.task('dev', ['client'], () => {
 })
 
 
-gulp.task('server', ['server-watch'], () => {
-  nodemon({
-    execMap: {
-      js: 'node'
-    },
-    script: './build/server.js',
-    ignore: ['*'],
-    ext: 'noop'
-  }).on('restart', () => {
-    console.log('restart server ok.');
-  })
-})
+// gulp.task('server', ['server-watch'], () => {
+//   nodemon({
+//     execMap: {
+//       js: 'node'
+//     },
+//     script: './build/server.js',
+//     ignore: ['*'],
+//     ext: 'noop'
+//   }).on('restart', () => {
+//     console.log('restart server ok.');
+//   })
+// })
 
-gulp.task('server-watch', () => {
-  webpack(webpackServerConfig).watch(100, (err, stats) => {
-    console.log(stats.toString({
-      chunks: false,
-      colors: true,
-    }));
-    run('lint');
-    !err && nodemon.restart();
-  })
-})
+// gulp.task('server-watch', () => {
+//   webpack(webpackServerConfig).watch(100, (err, stats) => {
+//     console.log(stats.toString({
+//       chunks: false,
+//       colors: true,
+//     }));
+//     run('lint');
+//     !err && nodemon.restart();
+//   })
+// })
 
 // dev server
 gulp.task('client', ()=> {
