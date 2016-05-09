@@ -16,3 +16,4 @@ npm i
 
 3. 修改 `/config/config.client.js`，将`github`字段的user和repo修改为你写博客的仓库
 4. `npm run build`编译，并上传，过几分钟后可看到效果(如果一直访问不了github page，请科学上网)
+5. **注意：必须修改`CNAME`文件的域名**， 必须修改，必须修改，原因不解释。如果你没有自己的域名，那就请删除该文件
