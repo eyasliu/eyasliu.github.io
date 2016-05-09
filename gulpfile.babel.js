@@ -9,7 +9,7 @@ import webpackProConfig from "./config/webpack.pro.js";
 import webpackServerConfig from "./config/webpack.server.js";
 import config from "./config/config.client";
 // import nodemon from "nodemon";
-import fse from "fs-extra";
+import fs from "fs";
 import {exec} from "child_process";
 
 gulp.task('dev', ['client'], () => {
@@ -92,6 +92,7 @@ gulp.task('build-client', ()=> {
       chunks: false,
       colors: true
     }));
+    setHash(stats.hash);
     // fse.copySync('./build/client', './public/assets')
   });
 });
@@ -115,3 +116,11 @@ gulp.task('build', () => {
     // run('build-server');
   })
 });
+
+function setHash(hash){
+  let indexHtml = fs.readFileSync('./index.html').toString();
+  indexHtml = indexHtml.replace(/client\.js?(\?)\b\w{0,25}\b/g, 'client.js?' + hash);
+  fs.writeFile('./index.html', indexHtml, err => {
+    console.log('replace hash success, Hash:' + hash);
+  })
+}
