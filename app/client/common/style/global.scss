@@ -33,3 +33,20 @@
     }
   }
 }
+.button-block{
+  display: block;
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 10px 15px;
+  margin: 5px 0;
+  color: #23B67F;
+  background: #fff;
+  font-size: 16px;
+}
+.label{
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 3px 5px;
+  margin: 0 3px 3px 0;
+}
