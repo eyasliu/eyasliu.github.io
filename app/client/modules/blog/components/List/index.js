@@ -24,10 +24,7 @@ export default class List extends Component {
 
   componentWillReceiveProps(nextProps){
     if(this.props.params.tagname !== nextProps.params.tagname){
-      nextProps.getList({
-        ...nextProps.params,
-        labels: nextProps.params.tagname
-      })
+      nextProps.getListByLabel(nextProps.params.tagname)
     }
   }
 

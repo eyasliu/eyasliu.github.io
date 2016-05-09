@@ -18,10 +18,17 @@ export default function list(state = initState, action) {
         data: []
       }
     case postConst.of('GetList'):
+      const param = state.listParam;
+      if(action.label){
+        param.labels = action.label
+      }
       return {
         ...state,
         isOver: !action.data.length,
-        data: action.data
+        data: action.data,
+        listParam: {
+          ...param
+        }
       }
     default: 
       return state;

@@ -70,6 +70,14 @@ export function getList(param){
   }
 }
 
+export function getListByLabel(labelname){
+  return {
+    type: constant.GetList,
+    label: labelname,
+    data: db('posts').find(item => item.labels.find(x => x.name == labelname))
+  }
+}
+
 export function getDetail(id){
   return {
     type: constant.GetDetail,
