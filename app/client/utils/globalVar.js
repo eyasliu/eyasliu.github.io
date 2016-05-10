@@ -17,6 +17,7 @@ import cx from 'classnames';
 import marked from 'marked';
 import utils from './utily';
 import db from './db';
+import DateFormat from './DateFormat'
 
 const config = {
   ...defaultConfig,
@@ -28,7 +29,8 @@ setGlobal({
   utils,
   config,
   cx,
-  _,
+  DateFormat,
+  // _,
   React,
   ReactDOM,
   Component: React.Component,

@@ -101,7 +101,7 @@ export function getSidebar(){
           type: 'UPDATE_SIDEBAR',
           name: 'latest_post',
           data: wrap
-            .sortBy('updated_at', x => +new Date(x))
+            .sortBy(x => -new Date(x.updated_at))
             .take(10)
             .map(item => ({
               title: item.title,

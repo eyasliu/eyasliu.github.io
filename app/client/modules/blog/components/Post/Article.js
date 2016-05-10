@@ -33,7 +33,7 @@ export default class Article extends Component {
               <div className={ast.user}>
                 <UserCard 
                   name={user.login} 
-                  text={data.created_at}
+                  text={DateFormat(data.created_at)}
                   avatar={user.avatar_url}
                 ></UserCard>
               </div>
