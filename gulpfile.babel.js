@@ -84,6 +84,14 @@ gulp.task('lint', () => {
 });
 
 // build
+function setHash(hash){
+  let indexHtml = fs.readFileSync('./index.html').toString();
+  indexHtml = indexHtml.replace(/client\.js?(\?)\b\w{0,25}\b/g, 'client.js?' + hash);
+  fs.writeFile('./index.html', indexHtml, err => {
+    console.log('replace hash success, Hash:' + hash);
+  })
+}
+
 gulp.task('build-client', ()=> {
   webpack(webpackProConfig, (err, stats) => {
     console.log('=============================================================')
@@ -117,10 +125,3 @@ gulp.task('build', () => {
   })
 });
 
-function setHash(hash){
-  let indexHtml = fs.readFileSync('./index.html').toString();
-  indexHtml = indexHtml.replace(/client\.js?(\?)\b\w{0,25}\b/g, 'client.js?' + hash);
-  fs.writeFile('./index.html', indexHtml, err => {
-    console.log('replace hash success, Hash:' + hash);
-  })
-}

@@ -4,7 +4,7 @@ import storage from 'lowdb/browser';
 const db = low('db', {storage});
 
 db._.mixin({
-  pushAll: function(origin, source){
+  pushAll(origin, source){
     this.each(source, item => {
       origin.push(item);
     })

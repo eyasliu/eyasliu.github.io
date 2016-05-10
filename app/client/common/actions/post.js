@@ -16,11 +16,11 @@ const requestData = function doRequest(url, cb = () => {}) {
         if(!err){
           cb(res.body);
         } else {
-          // if(requestCount < 2) {
-          //   // 最多重复两次
-          //   requestCount++;
-          //   req()
-          // }
+          if(requestCount < 2) {
+            // 最多重复两次
+            requestCount++;
+            // req()
+          }
           cb(null)
         }
       })
@@ -149,7 +149,7 @@ export function getDetail(id){
       .then(wrap => {
         dispatch({
           type: constant.GetDetail,
-          data: wrap.find({number: parseInt(id)}).value()
+          data: wrap.find({number: parseInt(id, 10)}).value()
         })
       })
   }
