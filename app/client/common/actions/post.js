@@ -54,6 +54,9 @@ const getData = (name, url) => (param, id, detailUrl) => {
     requestData(url || detailUrl, data => {
       if(data){
         db(name).replaceAll(data);
+        if(!url){
+          db(name).push({id, data})
+        }
       }
       if(param){
         resolve(_.chain(db(name)).filter(param))
@@ -162,7 +165,7 @@ export function getComments(id){
       .then(wrap => {
         dispatch({
           type: constant.GetComments,
-          data: wrap.value()
+          data: wrap.find({id}).value()
         })
       })
   }

@@ -12,7 +12,7 @@ export default class UserCard extends Component{
     return (
       <div className={style.comment}>
         <Add id={post.number}></Add>
-        {data.map(item => <Item data={item} />)}
+        {data && data.map(item => <Item data={item} />)}
       </div>
     )
   }
