@@ -3,10 +3,9 @@ const constant = Constant('cm-post')
 const {postUrl} = config;
 
 /**
- * 请求数据
- * @param  {[type]}   name [description]
- * @param  {Function} url) [description]
- * @return {[type]}        [description]
+ * 获取数据
+ * @param  {string}   url 请求url
+ * @param  {Function} cb  请求完成回调
  */
 const requestData = function doRequest(url, cb = () => {}) {
   let requestCount = 0;
@@ -17,12 +16,12 @@ const requestData = function doRequest(url, cb = () => {}) {
         if(!err){
           cb(res.body);
         } else {
-          if(requestCount < 2) {
-            requestCount++;
-            req()
-          }else{
-            // cb([]);
-          }
+          // if(requestCount < 2) {
+          //   // 最多重复两次
+          //   requestCount++;
+          //   req()
+          // }
+          cb(null)
         }
       })
   })()
@@ -35,10 +34,13 @@ const requestData = function doRequest(url, cb = () => {}) {
  * @param  {obj} param 查询参数
  * @return {Promise}    查询结果
  */
-const getData = (name, url) => param => {
+const getData = (name, url) => (param, id, detailUrl) => {
+  // if(!url){
+  //   url = detailUrl
+  // }
   const listdata = db(name).value();
   if(listdata.length){
-    requestData(url);
+    requestData(url || detailUrl);
     return new Promise((resolve, reject) => {
       if(param){
         resolve(_.chain(db(name)).filter(param))
@@ -49,8 +51,10 @@ const getData = (name, url) => param => {
   }
 
   return new Promise((resolve, reject) => {
-    requestData(url, data => {
-      db(name).replaceAll(data);
+    requestData(url || detailUrl, data => {
+      if(data){
+        db(name).replaceAll(data);
+      }
       if(param){
         resolve(_.chain(db(name)).filter(param))
       }else{
@@ -64,6 +68,9 @@ const getData = (name, url) => param => {
 const getPostList = getData('posts', postUrl);
 // 标签
 const getLabels = getData('labels', config.repoUrl + '/labels')
+// 评论
+const getCommentsList = getData('comments')
+
 
 /**
  * 侧边栏
@@ -87,7 +94,6 @@ export function getSidebar(){
     // 最近文章
     getPostList()
       .then(wrap => {
-        
         dispatch({
           type: 'UPDATE_SIDEBAR',
           name: 'latest_post',
@@ -104,7 +110,10 @@ export function getSidebar(){
   }
 }
 
-
+/**
+ * 获取列表
+ * @param  {obj} param 过滤参数
+ */
 export function getList(param){
   return dispatch => {
     dispatch({
@@ -127,63 +136,48 @@ export function getList(param){
   }
 }
 
-export function getLatestPost(){
+/**
+ * 详情
+ * @param  {number} id 文章id
+ */
+export function getDetail(id){
   return dispatch => {
     getPostList()
-      .then(data => {
+      .then(wrap => {
         dispatch({
-          type: 'UPDATE_SIDEBAR',
-          name: 'latest_post',
-          data
+          type: constant.GetDetail,
+          data: wrap.find({number: parseInt(id)}).value()
         })
       })
   }
 }
 
-export function getListByLabel(labelname){
-  return {
-    type: constant.GetList,
-    label: labelname,
-    data: db('posts').find(item => item.labels.find(x => x.name == labelname))
-  }
-}
-
-export function getDetail(id){
-  return {
-    type: constant.GetDetail,
-    data: db('posts').find({number: parseInt(id)})
-  }
-  // return dispatch => {
-  //   // const data = db('posts').find({number: id})
-  //   dispatch({
-  //     type: constant.GetDetail,
-  //     data: db('posts').find({number: id}).value()
-  //   })
-    // request
-    //   .get(postUrl + '/' + id)
-    //   .send({id})
-    //   .end((err, res) => {
-    //     dispatch({
-    //       type: constant.GetDetail,
-    //       data: res.body
-    //     })
-    //   })
-  // }
-}
-
+/**
+ * 文章评论
+ * @param  {number} id 文章ID
+ */
 export function getComments(id){
   return dispatch => {
-    request
-      .get(postUrl + '/' + id + '/comments')
-      .end((err, res) => {
-        if(!err){
-          dispatch({
-            type: constant.GetComments,
-            data: res.body
-          })
-        }
+    getCommentsList(null, id, postUrl + '/' + id + '/comments')
+      .then(wrap => {
+        dispatch({
+          type: constant.GetComments,
+          data: wrap.value()
+        })
       })
   }
+  // return dispatch => {
+  //   request
+  //     .get(postUrl + '/' + id + '/comments')
+  //     .end((err, res) => {
+  //       if(!err){
+  //         dispatch({
+  //           type: constant.GetComments,
+  //           data: res.body
+  //         })
+  //       }
+  //     })
+  // }
 }
 
 export function add(data){
