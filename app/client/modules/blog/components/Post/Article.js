@@ -14,7 +14,7 @@ export default class Article extends Component {
         <div className={style.inner}>
           <article className={style.main}>
             <section className={style.section}>
-              <header className={style.header}>
+              <header className={cx(style.header, ast.header)}>
                 <div className={style.thumb}>
                   {data.thumb ? <img src={data.thumb} alt={data.title}/> : ''}
                 </div>
@@ -24,6 +24,9 @@ export default class Article extends Component {
 
               </div>
               <div className={ast.labels}>
+                {labels.map(item => (
+                  <Link to={"/blog/tag/" + item.name}>{item.name}</Link>
+                ))}
               </div>
             </section>
             <footer className={ast.footer}>
