@@ -18,13 +18,17 @@ export default class List extends Component {
       ...props.listParam,
       labels: props.params.tagname
     });
-    props.getTags()
+
+    props.getSidebar();
     utils.setTitle('文章列表' + (props.params.tagname ? (' | 标签: ' + props.params.tagname) : '') + ' | Blog')
   }
 
   componentWillReceiveProps(nextProps){
     if(this.props.params.tagname !== nextProps.params.tagname){
-      nextProps.getListByLabel(nextProps.params.tagname)
+      nextProps.getList({
+        ...this.props.listParam,
+        labels: nextProps.params.tagname
+      })
     }
   }
 

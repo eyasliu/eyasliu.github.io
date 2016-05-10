@@ -4,8 +4,7 @@ const initState = {
   data: [],
   isOver: false,
   listParam: {
-    paged: 0,
-    labels: ''
+    // labels: ''
   }
 }
 

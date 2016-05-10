@@ -2,41 +2,105 @@ const constant = Constant('cm-post')
 
 const {postUrl} = config;
 
-const getData = (name, url) => (cb = () => {}) => {
-  const listdata = db(name).value();
-  const count = listdata.length
-  count && cb(null, listdata);
-
-  request
-    .get(url)
-    .end((err, res) => {
-      if(!err){
-        db(name).replaceAll(res.body);
-        (!count) && cb(null, res.body);
-      } else {
-        cb(err, null);
-        getIssuesList();
-      }
-    })
+/**
+ * 请求数据
+ * @param  {[type]}   name [description]
+ * @param  {Function} url) [description]
+ * @return {[type]}        [description]
+ */
+const requestData = function doRequest(url, cb = () => {}) {
+  let requestCount = 0;
+  (function req(){
+    request
+      .get(url)
+      .end((err, res) => {
+        if(!err){
+          cb(res.body);
+        } else {
+          if(requestCount < 2) {
+            requestCount++;
+            req()
+          }else{
+            // cb([]);
+          }
+        }
+      })
+  })()
 }
 
+/**
+ * 获取数据
+ * @param  {string} name 表名
+ * @param  {string} url 请求数据的url
+ * @param  {obj} param 查询参数
+ * @return {Promise}    查询结果
+ */
+const getData = (name, url) => param => {
+  const listdata = db(name).value();
+  if(listdata.length){
+    requestData(url);
+    return new Promise((resolve, reject) => {
+      if(param){
+        resolve(_.chain(db(name)).filter(param))
+      }else{
+        resolve(_.chain(db(name)))
+      }
+    });
+  }
+
+  return new Promise((resolve, reject) => {
+    requestData(url, data => {
+      db(name).replaceAll(data);
+      if(param){
+        resolve(_.chain(db(name)).filter(param))
+      }else{
+        resolve(_.chain(db(name)))
+      }
+    });
+  });
+}
+
+// 文章
 const getPostList = getData('posts', postUrl);
+// 标签
 const getLabels = getData('labels', config.repoUrl + '/labels')
 
-export function getTags(){
+/**
+ * 侧边栏
+ */
+export function getSidebar(){
   return dispatch => {
-    getLabels((err, data) => {
-      dispatch({
-        type: 'UPDATE_SIDEBAR',
-        name: 'tags',
-        data: _.chain(data)
-          .map(item => ({
-            title: item.name,
-            link: '/blog/tag/' + item.name
-          }))
-          .value()
+    // 标签
+    getLabels()
+      .then(wrap => {
+        dispatch({
+          type: 'UPDATE_SIDEBAR',
+          name: 'tags',
+          data: wrap
+            .map(item => ({
+              title: item.name,
+              link: '/blog/tag/' + item.name
+            }))
+            .value()
+        })
       })
-    })
+    // 最近文章
+    getPostList()
+      .then(wrap => {
+        
+        dispatch({
+          type: 'UPDATE_SIDEBAR',
+          name: 'latest_post',
+          data: wrap
+            .sortBy('updated_at', x => +new Date(x))
+            .take(10)
+            .map(item => ({
+              title: item.title,
+              link: '/blog/detail/' + item.number
+            }))
+            .value()
+        })
+      })
   }
 }
 
@@ -46,27 +110,33 @@ export function getList(param){
     dispatch({
       type: constant.ResetList
     })
-    getPostList((err, data) =>{
-      if(!err){
+    getPostList()
+      .then(wrap => {
+        let data = [];
+        if(param.labels) {
+          data = wrap.filter(item => _.find(item.labels, {name: param.labels})).value();
+        } else {
+          data = wrap.value();
+        }
         dispatch({
           type: constant.GetList,
-          param,
-          data: data
+          param, 
+          data
         })
-        const latest = _.chain(data)
-          .sortBy(item => +new Date(item.updated_at))
-          .take(10)
-          .map(item => ({
-            title: item.title,
-            link: '/blog/detail/' + item.number
-          }))
+      })
+  }
+}
+
+export function getLatestPost(){
+  return dispatch => {
+    getPostList()
+      .then(data => {
         dispatch({
           type: 'UPDATE_SIDEBAR',
           name: 'latest_post',
-          data: latest.value()
+          data
         })
-      }
-    });
+      })
   }
 }
 
