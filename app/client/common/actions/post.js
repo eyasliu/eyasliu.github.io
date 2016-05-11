@@ -40,7 +40,16 @@ const getData = (name, url) => (param, id, detailUrl) => {
   // }
   const listdata = db(name).value();
   if(listdata.length){
-    requestData(url || detailUrl);
+    requestData(url || detailUrl, data => {
+      if(data){
+        if(!url){
+          db(name).remove({id})
+          db(name).push({id, data})
+        }else{
+          db(name).replaceAll(data);
+        }
+      }
+    });
     return new Promise((resolve, reject) => {
       if(param){
         resolve(_.chain(db(name)).filter(param))
@@ -52,11 +61,11 @@ const getData = (name, url) => (param, id, detailUrl) => {
 
   return new Promise((resolve, reject) => {
     requestData(url || detailUrl, data => {
-      if(data){
+      if(!url){
+        db(name).remove({id})
+        db(name).push({id, data})
+      }else{
         db(name).replaceAll(data);
-        if(!url){
-          db(name).push({id, data})
-        }
       }
       if(param){
         resolve(_.chain(db(name)).filter(param))
