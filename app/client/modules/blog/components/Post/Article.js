@@ -14,7 +14,7 @@ export default class Article extends Component {
         <div className={style.inner}>
           <article className={style.main}>
             <section className={style.section}>
-              <header className={style.header}>
+              <header className={cx(style.header, ast.header)}>
                 <div className={style.thumb}>
                   {data.thumb ? <img src={data.thumb} alt={data.title}/> : ''}
                 </div>
@@ -24,13 +24,16 @@ export default class Article extends Component {
 
               </div>
               <div className={ast.labels}>
+                {labels.map(item => (
+                  <Link to={"/blog/tag/" + item.name}>{item.name}</Link>
+                ))}
               </div>
             </section>
             <footer className={ast.footer}>
               <div className={ast.user}>
                 <UserCard 
                   name={user.login} 
-                  text={data.created_at}
+                  text={DateFormat(data.created_at)}
                   avatar={user.avatar_url}
                 ></UserCard>
               </div>

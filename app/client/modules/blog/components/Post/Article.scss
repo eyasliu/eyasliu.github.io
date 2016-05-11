@@ -3,7 +3,9 @@
 }
 .inner{
   padding: 2rem 1rem;
-
+}
+.header{
+  // border-bottom: 1px solid #eee;
 }
 .footer{
   margin-top: 2rem;
@@ -19,4 +21,21 @@
   letter-spacing: -.004em;
   margin-top: 1em;
   font-size: 16px;
+}
+.labels{
+  border-top: 1px solid #eee;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  a{
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #eee;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 15px;
+    margin-right: 0.5em;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }

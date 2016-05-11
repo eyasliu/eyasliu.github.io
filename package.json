@@ -32,6 +32,7 @@
     "brace": "^0.8.0",
     "classname": "0.0.0",
     "cross-env": "^1.0.7",
+    "date-format": "0.0.2",
     "font-awesome": "^4.5.0",
     "forever": "^0.15.1",
     "form-to-obj": "0.0.3",
