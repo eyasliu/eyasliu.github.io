@@ -61,6 +61,7 @@
     "react-selectize": "^2.0.1",
     "react-toolbox": "^0.16.2",
     "redux": "^3.4.0",
+    "redux-bind-action-groups": "^2.0.0",
     "redux-thunk": "^2.0.1",
     "superagent": "^1.8.3"
   },

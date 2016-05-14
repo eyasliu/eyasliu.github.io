@@ -5,7 +5,8 @@
 import setGlobal from "./setGlobal";
 import React from "react";
 import ReactDOM from 'react-dom';
-import {compose, combineReducers, bindActionCreators} from 'redux';
+import {compose, combineReducers} from 'redux';
+import bindActionCreators from 'redux-bind-action-groups';
 import {connect} from 'react-redux';
 import Constant from 'react-constant';
 import formToObj from 'form-to-obj';
