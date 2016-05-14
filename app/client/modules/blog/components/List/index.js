@@ -9,23 +9,26 @@ import * as listActions from 'blog/actions/list';
 
 @connect(
   state => state.blog.list,
-  dispatch => bindActionCreators({...postActions, ...listActions}, dispatch)
+  dispatch => bindActionCreators({
+    postAct: postActions,
+    listAct: listActions
+  }, dispatch)
 )
 export default class List extends Component {
   constructor(props) {
     super();
-    props.getList({
+    props.postAct.getList({
       ...props.listParam,
       labels: props.params.tagname
     });
 
-    props.getSidebar();
+    props.postAct.getSidebar();
     utils.setTitle('文章列表' + (props.params.tagname ? (' | 标签: ' + props.params.tagname) : '') + ' | Blog')
   }
 
   componentWillReceiveProps(nextProps){
     if(this.props.params.tagname !== nextProps.params.tagname){
-      nextProps.getList({
+      nextProps.postAct.getList({
         ...this.props.listParam,
         labels: nextProps.params.tagname
       })

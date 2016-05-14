@@ -7,7 +7,7 @@ const {postUrl} = config;
  * @param  {string}   url 请求url
  * @param  {Function} cb  请求完成回调
  */
-const requestData = function doRequest(url, cb = () => {}) {
+const requestData = (url, cb = () => {}) => {
   let requestCount = 0;
   (function req(){
     request
