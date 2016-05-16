@@ -1,17 +1,17 @@
-import { Route, IndexRoute } from 'react-router';
-import Blog from './';
-import List from './components/List';
-import Search from './components/Search';
-import Detail from './components/Detail';
+import { Route, IndexRoute, IndexRedirect } from 'react-router';
+// import Blog from './';
+// import List from './components/List';
+// import Search from './components/Search';
+// import Detail from './components/Detail';
 
 const APPRouter = (
-<Route path="/blog" component={Blog}>
-  <Route path="list" component={List}></Route>
-  <Route path="tag/:tagname" component={List}></Route>
-  <Route path="search" component={Search}></Route>
-  <Route path="search/:keyword" component={Search}></Route>
-  <Route path="detail/:id" component={Detail}></Route>
-  <IndexRoute component={List} />
+<Route path="/blog" component={require('react-router?name=blog!./')}>
+  <Route path="list" component={require('react-router?name=bloglist!./components/List')}></Route>
+  <Route path="tag/:tagname" component={require('react-router?name=bloglist!./components/List')}></Route>
+  <Route path="search" component={require('react-router?name=search!./components/Search')}></Route>
+  <Route path="search/:keyword" component={require('react-router?name=search!./components/Search')}></Route>
+  <Route path="detail/:id" component={require('react-router?name=blog-detail!./components/Detail')}></Route>
+  <IndexRedirect to="list" />
 </Route>
 );
 

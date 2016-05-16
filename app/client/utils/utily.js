@@ -1,3 +1,4 @@
+
 export default {
   setTitle(str = ''){
     if(str){
