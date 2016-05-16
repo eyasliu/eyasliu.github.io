@@ -6,7 +6,7 @@
 
 const APPRouter = (
 <Route path="/blog" component={require('react-router?name=blog!./')}>
-  <Route path="list" component={require('react-router?name=bloglist!./components/List')}></Route>
+  <Route path="list" component={require('react-router?name=blog-list!./components/List')}></Route>
   <Route path="tag/:tagname" component={require('react-router?name=blog-list!./components/List')}></Route>
   <Route path="search" component={require('react-router?name=search!./components/Search')}></Route>
   <Route path="search/:keyword" component={require('react-router?name=search!./components/Search')}></Route>
