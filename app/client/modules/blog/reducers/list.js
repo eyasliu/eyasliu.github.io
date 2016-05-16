@@ -2,6 +2,7 @@ import postConst from 'common/actions/post';
 
 const initState = {
   data: [],
+  stars: db('stars').value(),
   isOver: false,
   listParam: {
     // labels: ''

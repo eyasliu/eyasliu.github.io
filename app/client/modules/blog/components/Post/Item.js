@@ -6,9 +6,8 @@ export default class Post extends Component {
   }
   
   render() {
-    const {data} = this.props;
+    const {data, stars} = this.props;
     const {user, labels} = data;
-
     return (
       <div className={style.item}>
         <div className={style.inner}>
@@ -44,8 +43,15 @@ export default class Post extends Component {
                   </div>
                   <div className={style.rightBtn}>
                     <span>
+                      <i className={cx("fa", {
+                        "fa-star-o": _.includes(stars, data.number),
+                        "fa-star": !_.includes(stars, data.number),
+                      })}></i>
+                    </span>
+                    <span>
                       <i className="fa fa-comment-o"></i> {data.comments}
                     </span>
+
                   </div>
                 </footer>
               </section>
