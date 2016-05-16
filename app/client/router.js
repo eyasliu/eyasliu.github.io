@@ -1,12 +1,12 @@
 // 应用总路由
-import {Router, Route, IndexRedirect} from 'react-router';
+// import {Router, Route, IndexRedirect} from 'react-router';
 
-import Framework from 'framework';
+// import Framework from 'framework';
 import BlogRouter from 'blog/router';
 
 const APPRouter = (
   <Router history={window.RouterHistory}>
-    <Route path="/" component={Framework}>
+    <Route path="/" component={require('react-router?name=framework!framework')}>
       {BlogRouter}
       <IndexRedirect to="/blog" />
     </Route>
