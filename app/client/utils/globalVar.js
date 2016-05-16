@@ -5,12 +5,14 @@
 import setGlobal from "./setGlobal";
 import React from "react";
 import ReactDOM from 'react-dom';
-import {compose, combineReducers, bindActionCreators} from 'redux';
+import compose from 'redux/lib/compose';
+import bindActionCreators from 'redux-bind-action-groups';
+import combineReducers from 'redux/lib/combineReducers';
 import {connect} from 'react-redux';
 import Constant from 'react-constant';
 import formToObj from 'form-to-obj';
 import request from './request';
-import {hashHistory} from 'react-router';
+import hashHistory from 'react-router/lib/hashHistory';
 import _ from 'lodash';
 import defaultConfig from 'root/config/config.client';
 import cx from 'classnames';

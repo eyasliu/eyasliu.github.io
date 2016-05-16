@@ -1,4 +1,6 @@
-import "utils/globalVar";
-import AppRouter from "./router";
 
-ReactDOM.render(AppRouter, document.getElementById('app'));
+require.ensure([], require => {
+  require('utils/globalVar');
+  const AppRouter = require('./router').default;
+  ReactDOM.render(AppRouter, document.getElementById('app'));
+}, 'common');
