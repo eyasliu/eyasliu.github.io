@@ -2,7 +2,7 @@ import postConst from 'common/actions/post';
 import starConst from 'common/actions/star';
 
 const initState = {
-  data: [],
+  data: db('posts').value(),
   stars: db('stars').value(),
   isOver: false,
   listParam: {
