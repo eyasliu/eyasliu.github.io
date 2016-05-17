@@ -20,7 +20,7 @@ export default class Post extends Component {
           </div>
         ) : ''}
         {data && data.length ? data.map(item => 
-          <Item data={item} />
+          <Item {...this.props} data={item} />
         ) : <Loading text={this.props.isOver ? '加载完成' : ''}></Loading>}
       </div>
     )
