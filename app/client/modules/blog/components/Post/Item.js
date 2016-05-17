@@ -42,10 +42,10 @@ export default class Post extends Component {
                     ))}
                   </div>
                   <div className={style.rightBtn}>
-                    <span>
+                    <span style={{cursor: 'pointer'}} onClick={e => this.props.starAct.toggleStar(data.number)}>
                       <i className={cx("fa", {
-                        "fa-star-o": _.includes(stars, data.number),
-                        "fa-star": !_.includes(stars, data.number),
+                        "fa-star-o": !_.includes(stars, data.number),
+                        "fa-star": _.includes(stars, data.number),
                       })}></i>
                     </span>
                     <span>

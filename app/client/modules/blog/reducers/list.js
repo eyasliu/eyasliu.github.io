@@ -1,4 +1,5 @@
 import postConst from 'common/actions/post';
+import starConst from 'common/actions/star';
 
 const initState = {
   data: [],
@@ -29,6 +30,24 @@ export default function list(state = initState, action) {
         listParam: {
           ...param
         }
+      }
+    case starConst.of('GetList'):
+      return {
+        ...state,
+        isOver: !action.data.length,
+        data: action.data
+      }
+    case starConst.of('ToggleStar'):
+      if(_.includes(state.stars, action.id)){
+        db('stars').remove(item => item === action.id);
+      }else{
+        db('stars').push(action.id);
+      }
+      return {
+        ...state,
+        stars: [
+          ...db('stars').value()
+        ]
       }
     default: 
       return state;
