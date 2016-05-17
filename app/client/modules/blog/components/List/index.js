@@ -27,7 +27,9 @@ export default class List extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(this.props.params.tagname !== nextProps.params.tagname){
+    if(this.props.location.path !== 'star' && nextProps.location.path === 'star'){
+      nextProps.getStar();
+    } else if(this.props.params.tagname !== nextProps.params.tagname){
       nextProps.postAct.getList({
         ...this.props.listParam,
         labels: nextProps.params.tagname
