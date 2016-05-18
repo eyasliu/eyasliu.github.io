@@ -21,4 +21,5 @@ db._.mixin({
     return origin;
   }
 })
+
 export default db;
