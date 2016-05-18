@@ -1,22 +1,32 @@
-# github 博客
+# Github Blog
 
-这是一个使用在github page的单页面应用，使用 github api 数据生成一个博客网站，文章数据来源于指定仓库 issues
+[![Circle CI](https://img.shields.io/circleci/project/eyasliu/eyasliu.github.io/master.svg)](https://circleci.com/gh/eyasliu/eyasliu.github.io)
 
-**demo: http://eyasweb.com**
+this is a single page application base Github API and Github Pages to generate a Blog Site, no other backend server. The posts come from assign your repo of issues
 
-## 使用方法
+**demo: http://euasweb.com**
 
-+ clone 该项目
+# Usage
+
+[简体中文](https://github.com/eyasliu/eyasliu.github.io/blob/master/README-zh.MD)
+
++ clone this repo
+
 ```
 git clone https://github.com/eyasliu/eyasliu.github.io.git
 ```
 
-+ 安装依赖
++ install dependencies
+
 ```
-npm i 
+npm i
 ```
 
-+ 修改 `/config/config.client.js`，将`github`字段的user和repo修改为你写博客的仓库
-+ `npm run build`编译，在github新建仓库，仓库名为： **{username}.github.io**，并上传，过几分钟后可看到效果(如果一直访问不了github page，请科学上网)
-+ 执行 `npm run server` 将在本地运行静态服务器，可见效果
-+ **注意：必须修改`CNAME`文件的域名**， 必须修改，必须修改，原因不解释。如果你没有自己的域名，那就请删除该文件
++ change file `/config/config.client.js` to assign your blog issues in repo
++ build project 
+
+```
+npm run build
+```
++ change `CNAME` file to your domain, if you don't have domain, delete it
++ push code to repo `{username}.github.io` (if not exits, create it)
