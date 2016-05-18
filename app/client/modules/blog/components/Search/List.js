@@ -7,13 +7,13 @@ export default class List extends React.Component {
   }
 
   render() {
-    const data = this.props;
+    const {data} = this.props;
+    console.log(data)
     return (
       <div className={style.list}>
-        <Item></Item>
-        <Item></Item>
-        <Item></Item>
-        <Item></Item>
+        {data && data.length && data.map(item => (
+          <Item {...this.props} data={item}></Item>
+        ))}
       </div>
     );
   }
