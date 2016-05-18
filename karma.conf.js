@@ -17,6 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/client/utils/global/vender.js',
       'app/**/*.spec.js'
     ],
 
@@ -30,7 +31,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/**/*.spec.js': ["webpack"]
+      'app/**/*.js': ["webpack", 'coverage']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -42,15 +43,19 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
-      // 'karma-coverage',
+      'karma-coverage',
       'karma-chai',
-      // 'karma-phantomjs-launcher'
+      'karma-phantomjs-launcher'
     ], 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      type : 'text'
+    },
 
 
     // web server port
@@ -72,8 +77,8 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
-
+    browsers: ['PhantomJS'],
+    // browsers: ['Chrome'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

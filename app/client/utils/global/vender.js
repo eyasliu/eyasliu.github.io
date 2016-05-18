@@ -11,27 +11,19 @@ import combineReducers from 'redux/lib/combineReducers';
 import {connect} from 'react-redux';
 import Constant from 'react-constant';
 import formToObj from 'form-to-obj';
-import request from './request';
 import hashHistory from 'react-router/lib/hashHistory';
 import _ from 'lodash';
 import defaultConfig from 'root/config/config.client';
 import cx from 'classnames';
 import marked from 'marked';
-import utils from './utily';
-import db from './db';
-import DateFormat from './DateFormat'
 
-const config = {
-  ...defaultConfig,
-  repoUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}`,
-  postUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}/issues`
-}
+import Link from "react-router/lib/Link";
+import Router from 'react-router/lib/Router';
+import Route from 'react-router/lib/Route';
+import IndexRedirect from 'react-router/lib/IndexRedirect';
 
 setGlobal({
-  utils,
-  config,
   cx,
-  DateFormat,
   // _,
   React,
   ReactDOM,
@@ -42,12 +34,12 @@ setGlobal({
   combineReducers,
   bindActionCreators,
   Constant,
-  request,
-  // formToObj,
   RouterHistory: hashHistory,
   marked,
-  db
+
+
+  Link,
+  Router,
+  Route,
+  IndexRedirect
 })
-
-
-require("./globalComponent");
