@@ -31,7 +31,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/**/*.js': ["webpack"]
+      'app/**/*.js': ["webpack", 'coverage']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -43,7 +43,7 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-sourcemap-loader',
       // 'karma-chrome-launcher',
-      // 'karma-coverage',
+      'karma-coverage',
       'karma-chai',
       'karma-phantomjs-launcher'
     ], 
@@ -51,7 +51,11 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      type : 'text'
+    },
 
 
     // web server port
