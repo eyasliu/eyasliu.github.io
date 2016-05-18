@@ -10,10 +10,10 @@ module.exports = {
       './app/client/index.js'
     ]
   },
-  output: {
-    ...common.output,
-    publicPath: `http://192.168.100.100:3000${common.output.publicPath}`
-  },
+  // output: {
+  //   ...common.output,
+  //   publicPath: `http://192.168.100.100:3000${common.output.publicPath}`
+  // },
   devtool: 'eval',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
