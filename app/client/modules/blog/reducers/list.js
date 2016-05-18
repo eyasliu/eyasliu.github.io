@@ -33,7 +33,6 @@ export default function list(state = initState, action) {
       }
     case postConst.of('GetByIds'):
       const data = db('posts').value().filter(item => (action.ids.indexOf('' + item.number) > -1))
-      console.log('reducer:' ,state.data)
       return {
         ...state,
         isOver: !data.length,
