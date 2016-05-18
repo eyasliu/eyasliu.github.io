@@ -148,6 +148,13 @@ export function getList(param){
   }
 }
 
+export function getPostByIds(ids){
+  return {
+    type: constant.GetByIds,
+    ids
+  }
+}
+
 /**
  * 详情
  * @param  {number} id 文章id
