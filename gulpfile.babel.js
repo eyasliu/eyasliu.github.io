@@ -17,30 +17,6 @@ gulp.task('dev', ['client'], () => {
 })
 
 
-// gulp.task('server', ['server-watch'], () => {
-//   nodemon({
-//     execMap: {
-//       js: 'node'
-//     },
-//     script: './build/server.js',
-//     ignore: ['*'],
-//     ext: 'noop'
-//   }).on('restart', () => {
-//     console.log('restart server ok.');
-//   })
-// })
-
-// gulp.task('server-watch', () => {
-//   webpack(webpackServerConfig).watch(100, (err, stats) => {
-//     console.log(stats.toString({
-//       chunks: false,
-//       colors: true,
-//     }));
-//     run('lint');
-//     !err && nodemon.restart();
-//   })
-// })
-
 // dev server
 gulp.task('client', ()=> {
   const compiler = webpack(webpackDevConfig);
@@ -101,27 +77,14 @@ gulp.task('build-client', ()=> {
       colors: true
     }));
     setHash(stats.hash);
-    // fse.copySync('./build/client', './public/assets')
   });
 });
-// gulp.task('build-server', ()=> {
-//   webpack(webpackServerConfig, (err, stats) => {
-//     console.log('=============================================================')
-//     console.log('server package completed!')
-//     console.log(stats.toString({
-//       chunks: false,
-//       colors: true
-//     }));
-//   });
-// });
-
 
 // build on save
 gulp.task('build', () => {
   exec('rm -rf public/assets build', (err, stats) => {
     console.log('clean success');
     run('build-client');
-    // run('build-server');
   })
 });
 

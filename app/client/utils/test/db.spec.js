@@ -1,7 +1,7 @@
 import db from '../db';
 
 describe('lowdb db Obj', () => {
-  const data = [1,2,3,4,5,6]
+  const data = [1, 2, 3, 4, 5, 6]
   beforeEach(() => {
     db('posts').replaceAll(data);
   })
@@ -10,7 +10,7 @@ describe('lowdb db Obj', () => {
   });
 
   it('db replaceAll', () => {
-    const testdata = [2,3,4,5,6,7]
+    const testdata = [2, 3, 4, 5, 6, 7]
     db('posts').replaceAll(testdata);
     db('posts').value().should.be.eql(testdata)
   })

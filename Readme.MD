@@ -4,7 +4,7 @@
 
 this is a single page application base Github API and Github Pages to generate a Blog Site, no other backend server. The posts come from assign your repo of issues
 
-**demo: http://euasweb.com**
+**demo: http://eyasweb.com**
 
 # Usage
 
