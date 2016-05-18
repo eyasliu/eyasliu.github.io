@@ -17,7 +17,6 @@
     "dev": "cross-env NODE_ENV=development gulp dev",
     "test": "cross-env NODE_ENV=test karma start --single-run",
     "test:watch": "cross-env NODE_ENV=test karma start -- --watch --no-single-run",
-    "postinstall": "npm run build",
     "deploy": "npm run build && npm run start"
   },
   "main": "index.js",
