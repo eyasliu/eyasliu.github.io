@@ -1,0 +1,11 @@
+export default class BackTop extends Component{
+  render(){
+    return (
+      <div className="back-top" onClick={e => {
+        document.body.scrollTop = 0;
+      }}>
+        <i className="fa fa-arrow-up"></i>
+      </div>
+    )
+  }
+}
