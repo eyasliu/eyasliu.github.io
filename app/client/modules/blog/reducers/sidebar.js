@@ -29,6 +29,7 @@ const initState = {
         <a href="http://github.com/${config.github.user}/${config.github.user}.github.io" class="button-block"><i class="fa fa-code-fork"></i> 网站源码</a>
         <a href="http://github.com/${config.github.user}/${config.github.repo}" class="button-block">博客原文</a>
         <a href="https://trello.com/b/FO7hMEqf" class="button-block">Road Map</a>
+        <a href="https://www.npmjs.com/~eyasliu" class="button-block">NPM 主页</a>
       `
     }
   ]

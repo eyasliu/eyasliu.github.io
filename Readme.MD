@@ -8,7 +8,7 @@ this is a single page application base Github API and Github Pages to generate a
 
 # Usage
 
-[简体中文](https://github.com/eyasliu/eyasliu.github.io/blob/master/README-zh.MD)
+[简体中文](https://github.com/eyasliu/eyasliu.github.io/blob/master/README-zh.md)
 
 + clone this repo
 
