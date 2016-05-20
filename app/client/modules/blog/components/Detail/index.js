@@ -9,6 +9,7 @@ import * as postActions from 'common/actions/post';
 export default class Detail extends Component{
   constructor(props){
     super();
+    document.body.scrollTop = 0;
     props.getDetail(props.params.id)
     props.getComments(props.params.id)
   }

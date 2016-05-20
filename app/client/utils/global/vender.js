@@ -16,6 +16,7 @@ import _ from 'lodash';
 import defaultConfig from 'root/config/config.client';
 import cx from 'classnames';
 import marked from 'marked';
+import createReducer from 'redux-create-reducer-curry';
 
 import Link from "react-router/lib/Link";
 import Router from 'react-router/lib/Router';
@@ -36,6 +37,7 @@ setGlobal({
   Constant,
   RouterHistory: hashHistory,
   marked,
+  createReducer,
 
 
   Link,

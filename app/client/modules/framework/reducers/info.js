@@ -14,6 +14,4 @@ const initState = {
   ]
 }
 
-export default function info(state = initState, action) {
-  return state;
-}
+export default createReducer(initState)()

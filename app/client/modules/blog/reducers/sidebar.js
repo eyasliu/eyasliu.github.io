@@ -34,28 +34,25 @@ const initState = {
   ]
 }
 
-export default function sidebar(state = initState, action) {
-  switch(action.type){
-    case 'UPDATE_SIDEBAR':
-      if(action.name){
-        const block = _.find(state.list, item => item.name === action.name);
-        block.content = action.data;
-        return {
-          ...state,
-          list: [
-            ...state.list
-          ]
-        }
-      } 
+export default createReducer(initState)({
+  UPDATE_SIDEBAR: (state, action) => {
+    if(action.name){
+      const block = _.find(state.list, item => item.name === action.name);
+      block.content = action.data;
       return {
         ...state,
         list: [
-          ...state.list,
-          action.data
+          ...state.list
         ]
       }
-      
-    default: 
-      return state
+    } 
+    return {
+      ...state,
+      list: [
+        ...state.list,
+        action.data
+      ]
+    }
   }
-}
+})
+
