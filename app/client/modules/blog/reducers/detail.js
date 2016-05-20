@@ -5,19 +5,14 @@ const initState = {
   comments: []
 }
 
-export default function detail(state = initState, action) {
-  switch(action.type){
-    case postConst.of('GetDetail'):
-      return {
-        ...state,
-        data: action.data
-      }
-    case postConst.of('GetComments'):
-      return {
-        ...state,
-        comments: action.data
-      }
-    default: 
-      return state;
-  }
-}
+export default createReducer(initState)({
+  [postConst.of('GetDetail')]: (state, action) => ({
+    ...state,
+    data: action.data
+  }),
+  [postConst.of('GetComments')]: (state, action) => ({
+    ...state,
+    comments: action.data
+  })
+})
+

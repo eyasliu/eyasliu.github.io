@@ -10,55 +10,49 @@ const initState = {
   }
 }
 
-export default function list(state = initState, action) {
-  switch(action.type){
-    case postConst.of('ResetList'):
-      return {
-        ...state,
-        isOver: false,
-        data: []
+export default createReducer(initState)({
+  [postConst.of('ResetList')]: (state, action) => ({
+    ...state,
+    isOver: false,
+    data: []
+  }),
+  [postConst.of('GetList')]: (state, action) => {
+    const param = state.listParam;
+    if(action.label){
+      param.labels = action.label
+    }
+    return {
+      ...state,
+      isOver: !action.data.length,
+      data: action.data,
+      listParam: {
+        ...param
       }
-    case postConst.of('GetList'):
-      const param = state.listParam;
-      if(action.label){
-        param.labels = action.label
-      }
-      return {
-        ...state,
-        isOver: !action.data.length,
-        data: action.data,
-        listParam: {
-          ...param
-        }
-      }
-    case postConst.of('GetByIds'):
-      const data = db('posts').value().filter(item => (action.ids.indexOf('' + item.number) > -1))
-      return {
-        ...state,
-        isOver: !data.length,
-        data: [
-          ...data
-        ]
-      }
-    case starConst.of('GetList'):
-      return {
-        ...state,
-        isOver: !action.data.length,
-        data: action.data
-      }
-    case starConst.of('ToggleStar'):
-      if(_.includes(state.stars, action.id)){
-        db('stars').remove(item => item === action.id);
-      }else{
-        db('stars').push(action.id);
-      }
-      return {
-        ...state,
-        stars: [
-          ...db('stars').value()
-        ]
-      }
-    default: 
-      return state;
+    }
+  },
+  [postConst.of('GetByIds')]: (state, action) => ({
+    ...state,
+    isOver: !data.length,
+    data: [
+      ...db('posts').value().filter(item => (action.ids.indexOf('' + item.number) > -1))
+    ]
+  }),
+  [starConst.of('GetList')]: (state, action) => ({
+    ...state,
+    isOver: !action.data.length,
+    data: action.data
+  }),
+  [starConst.of('ToggleStar')]: (state, action) => {
+    if(_.includes(state.stars, action.id)){
+      db('stars').remove(item => item === action.id);
+    }else{
+      db('stars').push(action.id);
+    }
+    return {
+      ...state,
+      stars: [
+        ...db('stars').value()
+      ]
+    }
   }
-}
+})
