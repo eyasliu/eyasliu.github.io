@@ -4,12 +4,12 @@ import common from './webpack.common';
 
 const commonConfig = {
   resolve: common.resolve,
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   externals: {
     'cheerio': 'window',
     // 'react': 'React',
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true
+    // 'react/lib/ExecutionEnvironment': true,
+    // 'react/lib/ReactContext': true
   },
   module: {
     loaders: [

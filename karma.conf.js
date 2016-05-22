@@ -18,7 +18,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'app/client/utils/global/vender.js',
-      'app/**/*.spec.js'
+      'config/testfile.js'
     ],
 
 
@@ -31,7 +31,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/**/*.js': ["webpack", 'coverage']
+      'app/**/*.js': ["webpack", 'coverage'],
+      'config/testfile.js': ["webpack", 'coverage']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
