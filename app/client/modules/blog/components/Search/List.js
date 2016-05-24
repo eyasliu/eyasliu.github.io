@@ -8,7 +8,6 @@ export default class List extends React.Component {
 
   render() {
     const {data} = this.props;
-    console.log(data)
     return (
       <div className={style.list}>
         {data && data.length && data.map(item => (

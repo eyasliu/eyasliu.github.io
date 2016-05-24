@@ -32,7 +32,7 @@ export default createReducer(initState)({
   },
   [postConst.of('GetByIds')]: (state, action) => ({
     ...state,
-    isOver: !data.length,
+    isOver: !action.ids.length,
     data: [
       ...db('posts').value().filter(item => (action.ids.indexOf('' + item.number) > -1))
     ]
