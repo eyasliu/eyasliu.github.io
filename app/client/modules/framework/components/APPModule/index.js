@@ -1,5 +1,4 @@
 import Navbar from '../navbar';
-import Test from './test';
 import style from './style.scss';
 import BackTop from 'cc/BackTop';
 
