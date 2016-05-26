@@ -6,7 +6,7 @@ import style from "./style.scss";
 export default props => (
   <div className={style.top}>
     <div className={style.logo}>
-      {this.props.siteName}
+      {props.siteName}
     </div>
     <div className={style.action}>
       <span><Link to="/blog/search"><i className="fa fa-search"></i></Link></span>

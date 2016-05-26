@@ -4,13 +4,11 @@ import { Provider } from 'react-redux';
 import createStore from 'utils/store';
 import reducers from './reducers';
 
-export default (rootReducer => props => {
-  const store = createStore()(rootReducer);
-  return (
+export default (store => ({children}) =>  (
     <Provider store={store}>
       <APPModule>
-        {props.children}
+        {children}
       </APPModule>
     </Provider>
   )
-})(reducers)
+)(createStore()(reducers))
