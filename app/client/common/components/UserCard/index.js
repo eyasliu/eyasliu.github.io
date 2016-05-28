@@ -1,30 +1,24 @@
 import style from './style.scss';
 
-export default class UserCard extends Component{
-  constructor(props){
-    super();
-  }
+const UserCard = props => (
+  <div className={cx(style.usercard, "clearfix", props.className)}>
+    <div className={style.avatar}>
+      <img src={props.avatar} alt={props.name} />
+    </div>
+    <div className={cx({
+      [style.text]: true,
+      [style.onlyname]: !props.text
+    })}>
+      <h5>{props.name}</h5>
+      {!props.text ? '' : <p>{props.text}</p>}
+    </div>
+  </div>
+)
 
-  static defaultProps = {
-    name: 'Eyas Liu',
-    text: '',
-    avatar: require('./default.jpg')
-  }
-
-  render(){
-    return (
-      <div className={cx(style.usercard, "clearfix", this.props.className)}>
-        <div className={style.avatar}>
-          <img src={this.props.avatar} alt={this.props.name} />
-        </div>
-        <div className={cx({
-          [style.text]: true,
-          [style.onlyname]: !this.props.text
-        })}>
-          <h5>{this.props.name}</h5>
-          {!this.props.text ? '' : <p>{this.props.text}</p>}
-        </div>
-      </div>
-    )
-  }
+UserCard.defaultProps = {
+  name: 'Eyas Liu',
+  text: '',
+  avatar: require('./default.jpg')
 }
+
+export default UserCard;
