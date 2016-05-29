@@ -4,7 +4,7 @@ APP="./"
 RUNTIME="./RUNTIME"
 SCRIPT="$APP/build/server.js"
 PID="$RUNTIME/app.pid"
-LOG="$APP/log/eyasweb.log"
+LOG="$APP/log/eyasliu.github.io.log"
 
 
 NODE_ENV=production forever -p $APP --pidFile $PID -l $LOG -a -d $SCRIPT

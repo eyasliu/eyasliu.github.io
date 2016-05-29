@@ -80,6 +80,18 @@ gulp.task('build-client', ()=> {
   });
 });
 
+// build server
+gulp.task('build-server', () => {
+  webpack(webpackServerConfig, (err, stats) => {
+    console.log('=============================================================')
+    console.log('server package completed!')
+    console.log(stats.toString({
+      chunks: false,
+      colors: true
+    }));
+  });
+})
+
 // build on save
 gulp.task('build', () => {
   exec('rm -rf public/assets build', (err, stats) => {
@@ -87,4 +99,5 @@ gulp.task('build', () => {
     run('build-client');
   })
 });
+
 

@@ -12,7 +12,7 @@ const webpackConfig = {
   
   entry: {
     server: [
-      './app/server/main.js'
+      './app/server/index.js'
     ]
   },
   target: 'node',
@@ -20,23 +20,11 @@ const webpackConfig = {
     __dirname: 'mock',
     __filename: 'mock'
   },
-  resolve: {
-    alias: {
-      server: path.join(__dirname, '../app/server'),
-      static: path.join(__dirname, '../app/static'),
-      utils: path.join(__dirname, '../app/server/utils'),
-      api: path.join(__dirname, '../app/server/api'),
-      controllers: path.join(__dirname, '../app/server/api/controllers'),
-      policies: path.join(__dirname, '../app/server/api/policies'),
-      models: path.join(__dirname, '../app/server/api/models'),
-    }
-  },
   externals: nodeModules,
   output: {
     path: path.join(__dirname, '../build'),
     filename: '[name].js',
-    publicPath: `/build/`,
-    // libraryTarget: "commonjs2"
+    publicPath: `/build/`
   },
   module: {
     loaders: [
@@ -54,9 +42,7 @@ const webpackConfig = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"'
-    }),
-    new webpack.BannerPlugin('require("source-map-support").install();',
-      {raw: true, entryOnly: false})
+    })
   ]
 };
 
@@ -70,6 +56,12 @@ if (process.env.NODE_ENV == 'production') {
       },
       comments: false
     })
+  ]
+}else{
+  webpackConfig.plugins = [
+    ...webpackConfig.plugins,
+    new webpack.BannerPlugin('require("source-map-support").install();',
+      {raw: true, entryOnly: false})
   ]
 }
 

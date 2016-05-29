@@ -12,4 +12,4 @@ RUN cd /opt \
 
 EXPOSE 8000
 
-ENTRYPOINT /opt/eyasweb/run
+ENTRYPOINT /opt/eyasliu.github.io/run

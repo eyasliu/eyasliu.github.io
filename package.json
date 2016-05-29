@@ -13,6 +13,7 @@
     "clean": "gulp clean",
     "start": "cross-env NODE_ENV=production bash run",
     "build": "cross-env NODE_ENV=production gulp build",
+    "build:server": "cross-env NODE_ENV=production gulp build-server",
     "server": "cross-env NODE_ENV=production node app/server",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "test": "cross-env NODE_ENV=test karma start --single-run",
