@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APP="./"
-RUNTIME="./RUNTIME"
-SCRIPT="./build/server.js"
+APP="/opt/eyasliu.github.io"
+RUNTIME="$APP/RUNTIME"
+SCRIPT="$APP/build/server.js"
 PID="$RUNTIME/app.pid"
 LOG="$APP/log/eyasliu.github.io.log"
 
