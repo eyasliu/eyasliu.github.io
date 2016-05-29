@@ -13,4 +13,15 @@ const APPRouter = (
   </Router>
 );
 
+// const APPRouter = (
+//   <Router history={window.RouterHistory} routes={{
+//     path: '/',
+//     component: require('framework').default,
+//     indexRedirect: '/blog',
+//     childRoutes: [
+//       require('blog/router').default
+//     ]
+//   }} />
+// )
+
 export default APPRouter;
