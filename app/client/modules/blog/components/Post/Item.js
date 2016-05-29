@@ -1,6 +1,7 @@
 import style from './Item.scss';
 
-export default ({data, stars}) => {
+export default props => {
+  const {data, stars} = props;
   const {user, labels} = data;
   return (
     <div className={style.item}>
@@ -36,7 +37,7 @@ export default ({data, stars}) => {
                   ))}
                 </div>
                 <div className={style.rightBtn}>
-                  <span style={{cursor: 'pointer'}} onClick={e => this.props.starAct.toggleStar(data.number)}>
+                  <span style={{cursor: 'pointer'}} onClick={e => props.starAct.toggleStar(data.number)}>
                     <i className={cx("fa", {
                       "fa-star-o": !_.includes(stars, data.number),
                       "fa-star": _.includes(stars, data.number),
@@ -45,7 +46,6 @@ export default ({data, stars}) => {
                   <span>
                     <i className="fa fa-comment-o"></i> {data.comments}
                   </span>
-
                 </div>
               </footer>
             </section>
