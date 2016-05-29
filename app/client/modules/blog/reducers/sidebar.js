@@ -24,7 +24,6 @@ const initState = {
       subtitle: 'Intructor',
       type: 'text',
       content: `网址数据来源于 
-        <iframe src="https://ghbtns.com/github-btn.html?user=${config.github.user}&repo=${config.github.repo}&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
         <a href="http://github.com/${config.github.user}" class="button-block"><i class="fa fa-github"></i> Github 主页</a>
         <a href="http://github.com/${config.github.user}/${config.github.user}.github.io" class="button-block"><i class="fa fa-code-fork"></i> 网站源码</a>
         <a href="http://github.com/${config.github.user}/${config.github.repo}" class="button-block">博客原文</a>
