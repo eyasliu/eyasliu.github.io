@@ -2,7 +2,7 @@
 
 APP="./"
 RUNTIME="./RUNTIME"
-SCRIPT="$APP/build/server.js"
+SCRIPT="./build/server.js"
 PID="$RUNTIME/app.pid"
 LOG="$APP/log/eyasliu.github.io.log"
 
