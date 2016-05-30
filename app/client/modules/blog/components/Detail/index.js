@@ -15,7 +15,7 @@ export default class Detail extends Component{
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.data.number){
+    if(nextProps.data && nextProps.data.number){
       utils.setTitle((nextProps.data.title ? nextProps.data.title : '文章详情') + ' | Blog')
     }
   }
