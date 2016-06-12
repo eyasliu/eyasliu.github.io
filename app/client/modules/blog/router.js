@@ -30,7 +30,7 @@ const APPRouter = (
   <Route path="list" getComponent={list}></Route>
   <Route path="star" getComponent={list}></Route>
   <Route path="tag/:tagname" getComponent={list}></Route>
-  <Route path="search(/:keyword)" component={search}></Route>
+  <Route path="search(/:keyword)" getComponent={search}></Route>
   <Route path="detail/:id" getComponent={detail}></Route>
   <IndexRedirect to="list" />
 </Route>
