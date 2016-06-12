@@ -56,7 +56,7 @@
     "react-addons-shallow-compare": "^15.0.2",
     "react-constant": "^2.0.1",
     "react-dom": "^15.0.1",
-    "react-lite": "^0.15.13",
+    "react-lite": "^0.15.14",
     "react-redux": "^4.4.2",
     "react-router": "^2.0.1",
     "react-selectize": "^2.0.1",

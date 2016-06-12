@@ -25,6 +25,7 @@ export default class Search extends React.Component {
   }
 
   searchHandler(val){
+    this.setState({keyword: val})
     const result = [];
     _.each(this.state.searchData, (v, k) => {
       if(v.indexOf(val) > -1){
