@@ -4,6 +4,7 @@
 import 'normalize.css/normalize.css';
 import 'font-awesome/css/font-awesome.css';
 import 'github-markdown-css/github-markdown.css'
+import './animate'
 import './base'
 import './global'
 import './content'
