@@ -4,11 +4,9 @@ import eslint from "gulp-eslint";
 import webpack from "webpack";
 import run from "run-sequence";
 import WebpackDevServer from "webpack-dev-server";
-import webpackDevConfig from "./config/webpack.dev.js";
-import webpackProConfig from "./config/webpack.pro.js";
+import webpackClientConfig from "./config/webpack.client.js";
 import webpackServerConfig from "./config/webpack.server.js";
 import config from "./config/config.client";
-// import nodemon from "nodemon";
 import fs from "fs";
 import {exec} from "child_process";
 
@@ -19,7 +17,7 @@ gulp.task('dev', ['client'], () => {
 
 // dev server
 gulp.task('client', ()=> {
-  const compiler = webpack(webpackDevConfig);
+  const compiler = webpack(webpackClientConfig);
   
   compiler.plugin('done', (stats) => {
     run('lint');
@@ -27,7 +25,7 @@ gulp.task('client', ()=> {
   
   new WebpackDevServer(compiler, {
     contentBase: './',
-    publicPath: webpackDevConfig.output.publicPath,
+    publicPath: webpackClientConfig.output.publicPath,
     hot: true,
     quiet: false,
     historyApiFallback: true,
@@ -69,7 +67,7 @@ function setHash(hash){
 }
 
 gulp.task('build-client', ()=> {
-  webpack(webpackProConfig, (err, stats) => {
+  webpack(webpackClientConfig, (err, stats) => {
     console.log('=============================================================')
     console.log('client package completed!')
     console.log(stats.toString({
