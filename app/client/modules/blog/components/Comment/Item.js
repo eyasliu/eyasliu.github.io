@@ -7,7 +7,7 @@ export default ({data}) => (
       text={data.created_at}
       avatar={data.user.avatar_url}
     ></UserCard>
-    <div className={style.content} dangerouslySetInnerHTML={{__html: marked(data.body)}}>
+    <div className={style.content + ' markdown-body'} dangerouslySetInnerHTML={{__html: marked(data.body)}}>
       
     </div>
   </div>

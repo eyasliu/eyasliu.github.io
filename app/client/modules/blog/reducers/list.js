@@ -54,5 +54,14 @@ export default createReducer(initState)({
         ...db('stars').value()
       ]
     }
-  }
+  },
+  [postConst.of('GetComments')]: (state, action) => ({
+    ...state,
+    data: [..._.map(state.data, item => {
+      if(item.number == action.id){
+        item.comments = action.data
+      }
+      return item;
+    })]
+  })
 })

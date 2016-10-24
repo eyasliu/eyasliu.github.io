@@ -24,7 +24,7 @@ export default class Detail extends Component{
     return (
       <div>
         <Article data={props.data}></Article>
-        <Comment post={props.data} data={props.comments}></Comment>
+        <Comment post={props.data} data={props.data.comments}></Comment>
       </div>
     )
   }

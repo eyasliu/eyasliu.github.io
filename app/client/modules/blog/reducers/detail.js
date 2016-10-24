@@ -12,6 +12,10 @@ export default createReducer(initState)({
   }),
   [postConst.of('GetComments')]: (state, action) => ({
     ...state,
+    data: {
+      ...state.data,
+      comments: action.data
+    },
     comments: action.data
   })
 })

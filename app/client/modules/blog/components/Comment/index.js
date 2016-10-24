@@ -2,9 +2,9 @@ import style from './style.scss';
 import Add from './Add';
 import Item from './Item';
 
-export default ({data, post}) => (
+export default ({post}) => (
   <div className={style.comment}>
     <Add id={post.number}></Add>
-    {data && data.length ? data.map(item => <Item data={item} />) : ''}
+    {post.comments && post.comments.length ? post.comments.map(item => <Item data={item} />) : ''}
   </div>
 )

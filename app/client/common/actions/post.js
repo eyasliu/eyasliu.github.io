@@ -181,7 +181,8 @@ export function getComments(id){
       .then(wrap => {
         dispatch({
           type: constant.GetComments,
-          data: wrap.find({id}).value().data
+          data: wrap.find({id}).value().data,
+          id
         })
       })
   }
