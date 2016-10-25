@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
-import common from './webpack.common';
+import common from './webpack.client';
 
 const commonConfig = {
   resolve: common.resolve,
