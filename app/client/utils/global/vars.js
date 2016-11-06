@@ -12,6 +12,7 @@ import request from '../request';
 
 const config = {
   ...defaultConfig,
+  ...(window.config||{}),
   repoUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}`,
   postUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}/issues`
 }
