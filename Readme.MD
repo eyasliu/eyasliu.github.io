@@ -4,29 +4,30 @@
 
 this is a single page application base Github API and Github Pages to generate a Blog Site, no other backend server. The posts come from assign your repo of issues
 
-**demo: http://eyasweb.com**
+**demo: http://eyasweb.com **
 
 # Usage
 
 [简体中文](https://github.com/eyasliu/eyasliu.github.io/blob/master/README-zh.md)
 
 + clone this repo
-
-```
-git clone https://github.com/eyasliu/eyasliu.github.io.git
-```
-
-+ install dependencies
-
-```
-npm i
-```
-
-+ change file `/config/config.client.js` to assign your blog issues in repo
-+ build project 
-
-```
-npm run build
-```
-+ change `CNAME` file to your domain, if you don't have domain, delete it
+  ```
+  git clone https://github.com/eyasliu/eyasliu.github.io.git
+  ```
++ change root folder file `config.js` to assign your blog issues in repo
 + push code to repo `{username}.github.io` (if not exits, create it)
+
+# Contributing
+
+ + install dependencies
+   ```
+   npm i
+   ```
+ + enable webpack dev server
+   ```
+   npm run build
+   ```
+  or running an static server ti preview
+   ```
+   npm run server
+   ```
