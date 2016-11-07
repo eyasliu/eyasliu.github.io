@@ -12,15 +12,16 @@ import request from '../request';
 
 const config = {
   ...defaultConfig,
-  ...(window.config||{}),
-  repoUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}`,
-  postUrl: `${defaultConfig.server}/repos/${defaultConfig.github.user}/${defaultConfig.github.repo}/issues`
+  ...(window.config || {})
 }
+config.repoUrl = `${config.server}/repos/${config.github.user}/${config.github.repo}`
+config.postUrl = `${config.server}/repos/${config.github.user}/${config.github.repo}/issues`
 
 setGlobal({
-  config,
   utils,
   request,
   DateFormat,
   db
+}, {
+  config
 })

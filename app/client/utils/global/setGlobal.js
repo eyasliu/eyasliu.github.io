@@ -3,7 +3,7 @@
  * set variable to global var
  * @param globalVars
  */
-export default function setGlobal(globalVars = {}) {
+export default function setGlobal(globalVars = {}, forceGlobalVars = {}) {
   /* eslint-disable */
   for(let key in globalVars) {
     if(!window[key]){
@@ -12,5 +12,8 @@ export default function setGlobal(globalVars = {}) {
     } else {
       console.error('Sorry, the global variable [window.' + key + '] already exits');
     }
+  }
+  for(let key in forceGlobalVars) {
+  	window[key] = forceGlobalVars[key]
   }
 }

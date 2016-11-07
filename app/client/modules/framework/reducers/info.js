@@ -11,7 +11,8 @@ const initState = {
       label: '博客',
       link: '/blog'
     }
-  ]
+  ],
+  ...window.config
 }
 
 export default createReducer(initState)()
